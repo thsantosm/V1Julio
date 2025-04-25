@@ -4,7 +4,7 @@ function App() {
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [historico, setHistorico] = useState([]); // *anotacao* fila de histórico
+  const [historico, setHistorico] = useState([]); // fila de histórico
 
   function calcularIMC(e) {
     e.preventDefault();
@@ -36,12 +36,16 @@ function App() {
     const resultado = `IMC: ${imcFormatado} — ${classificacao}`;
     setMensagem(resultado);
 
-    // *anotacao* adiciona a fila novo histórico
+    // Adiciona o novo histórico
     setHistorico([...historico, resultado]);
 
-    
     setPeso('');
     setAltura('');
+  }
+
+  
+  function limparHistorico() {
+    setHistorico([]);
   }
 
   return (
@@ -73,6 +77,8 @@ function App() {
               <li key={index}>{item}</li>
             ))}
           </ul>
+          {/* Botão para limpar o histórico */}
+          <button onClick={limparHistorico}>Apagar Histórico</button>
         </div>
       )}
     </div>
