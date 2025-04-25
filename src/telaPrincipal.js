@@ -4,7 +4,7 @@ function App() {
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
   const [mensagem, setMensagem] = useState('');
-  const [historico, setHistorico] = useState([]); // fila de histórico
+  const [historico, setHistorico] = useState([]); // *anotacao* fila de histórico
 
   function calcularIMC(e) {
     e.preventDefault();
@@ -36,10 +36,10 @@ function App() {
     const resultado = `IMC: ${imcFormatado} — ${classificacao}`;
     setMensagem(resultado);
 
-    // adiciona ao final da fila (novo histórico)
+    // *anotacao* adiciona a fila novo histórico
     setHistorico([...historico, resultado]);
 
-    // limpa os campos
+    
     setPeso('');
     setAltura('');
   }
